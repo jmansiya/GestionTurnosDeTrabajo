@@ -1,8 +1,8 @@
 package org.sun.resorts.holidays.data.repository.jpa;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.sun.resorts.holidays.model.jpa.PlanillasEntity;
-import org.sun.resorts.holidays.model.jpa.PlanillasEntityKey;
+import org.sun.resorts.holidays.data.model.PlanillasEntity;
+import org.sun.resorts.holidays.data.model.PlanillasEntityKey;
 
 /**
  * Repository : Planillas.

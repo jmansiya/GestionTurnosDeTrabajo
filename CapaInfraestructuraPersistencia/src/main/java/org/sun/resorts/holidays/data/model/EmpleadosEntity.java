@@ -4,7 +4,7 @@
  */
 // This Bean has a basic Primary Key (not composite) 
 
-package org.sun.resorts.holidays.model.jpa;
+package org.sun.resorts.holidays.data.model;
 
 import java.io.Serializable;
 
@@ -113,7 +113,11 @@ public class EmpleadosEntity implements Serializable {
     private PerfilesEntity perfiles    ;
 
     @ManyToOne
-    @JoinColumn(name="ID_TURNO_TRABAJO", referencedColumnName="idTURNOS DE TRABAJO")
+    //@JoinColumn(name="ID_TURNO_TRABAJO", referencedColumnName="idTURNOS_DE_TRABAJO")
+    @JoinColumns({    
+    	  @JoinColumn(name = "ID_TURNO_TRABAJO", referencedColumnName = "idTURNOS_DE_TRABAJO"),
+    	  @JoinColumn(name = "ID_PUESTO_TRABAJO", referencedColumnName = "ID_PUESTO_TRABAJO")
+    	})
     private TurnosDeTrabajoEntity turnosDeTrabajo;
 
     @OneToMany(mappedBy="empleados", targetEntity=VacacionesEntity.class)

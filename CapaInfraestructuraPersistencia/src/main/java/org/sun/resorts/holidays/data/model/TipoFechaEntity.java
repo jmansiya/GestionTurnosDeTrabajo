@@ -4,32 +4,31 @@
  */
 // This Bean has a basic Primary Key (not composite) 
 
-package org.sun.resorts.holidays.model.jpa;
+package org.sun.resorts.holidays.data.model;
 
 import java.io.Serializable;
 
 //import javax.validation.constraints.* ;
 //import org.hibernate.validator.constraints.* ;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
 /**
- * Persistent class for entity stored in table "volumen_trabajo_especial"
+ * Persistent class for entity stored in table "tipo_fecha"
  *
  * @author Telosys Tools Generator
  *
  */
 
 @Entity
-@Table(name="volumen_trabajo_especial")
+@Table(name="tipo_fecha" )
 // Define named queries here
 @NamedQueries ( {
-  @NamedQuery ( name="VolumenTrabajoEspecialEntity.countAll", query="SELECT COUNT(x) FROM VolumenTrabajoEspecialEntity x" )
+  @NamedQuery ( name="TipoFechaEntity.countAll", query="SELECT COUNT(x) FROM TipoFechaEntity x" )
 } )
-public class VolumenTrabajoEspecialEntity implements Serializable {
+public class TipoFechaEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,75 +37,51 @@ public class VolumenTrabajoEspecialEntity implements Serializable {
     //----------------------------------------------------------------------
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="idVOLUMEN", nullable=false)
-    private Integer    idvolumen    ;
+    @Column(name="idTIPO_FECHA", nullable=false)
+    private Integer    idtipoFecha  ;
 
 
     //----------------------------------------------------------------------
     // ENTITY DATA FIELDS 
     //----------------------------------------------------------------------    
-    @Temporal(TemporalType.DATE)
-    @Column(name="FECHA_INICIO", nullable=false)
-    private Date       fechaInicio  ;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name="FECHA_FIN", nullable=false)
-    private Date       fechaFin     ;
-
-    @Column(name="OBSERVACIONES", length=50)
-    private String     observaciones ;
+    @Column(name="DESCRIPCION", nullable=false, length=45)
+    private String     descripcion  ;
 
 
 
     //----------------------------------------------------------------------
     // ENTITY LINKS ( RELATIONSHIP )
     //----------------------------------------------------------------------
-    @OneToMany(mappedBy="volumenTrabajoEspecial", targetEntity=PlanillasEntity.class)
+    @OneToMany(mappedBy="tipoFecha", targetEntity=PlanillasEntity.class)
     private List<PlanillasEntity> listOfPlanillas;
 
 
     //----------------------------------------------------------------------
     // CONSTRUCTOR(S)
     //----------------------------------------------------------------------
-    public VolumenTrabajoEspecialEntity() {
+    public TipoFechaEntity() {
 		super();
     }
     
     //----------------------------------------------------------------------
     // GETTER & SETTER FOR THE KEY FIELD
     //----------------------------------------------------------------------
-    public void setIdvolumen( Integer idvolumen ) {
-        this.idvolumen = idvolumen ;
+    public void setIdtipoFecha( Integer idtipoFecha ) {
+        this.idtipoFecha = idtipoFecha ;
     }
-    public Integer getIdvolumen() {
-        return this.idvolumen;
+    public Integer getIdtipoFecha() {
+        return this.idtipoFecha;
     }
 
     //----------------------------------------------------------------------
     // GETTERS & SETTERS FOR FIELDS
     //----------------------------------------------------------------------
-    //--- DATABASE MAPPING : FECHA_INICIO ( DATE ) 
-    public void setFechaInicio( Date fechaInicio ) {
-        this.fechaInicio = fechaInicio;
+    //--- DATABASE MAPPING : DESCRIPCION ( VARCHAR ) 
+    public void setDescripcion( String descripcion ) {
+        this.descripcion = descripcion;
     }
-    public Date getFechaInicio() {
-        return this.fechaInicio;
-    }
-
-    //--- DATABASE MAPPING : FECHA_FIN ( DATE ) 
-    public void setFechaFin( Date fechaFin ) {
-        this.fechaFin = fechaFin;
-    }
-    public Date getFechaFin() {
-        return this.fechaFin;
-    }
-
-    //--- DATABASE MAPPING : OBSERVACIONES ( VARCHAR ) 
-    public void setObservaciones( String observaciones ) {
-        this.observaciones = observaciones;
-    }
-    public String getObservaciones() {
-        return this.observaciones;
+    public String getDescripcion() {
+        return this.descripcion;
     }
 
 
@@ -127,13 +102,9 @@ public class VolumenTrabajoEspecialEntity implements Serializable {
     public String toString() { 
         StringBuffer sb = new StringBuffer(); 
         sb.append("["); 
-        sb.append(idvolumen);
+        sb.append(idtipoFecha);
         sb.append("]:"); 
-        sb.append(fechaInicio);
-        sb.append("|");
-        sb.append(fechaFin);
-        sb.append("|");
-        sb.append(observaciones);
+        sb.append(descripcion);
         return sb.toString(); 
     } 
 

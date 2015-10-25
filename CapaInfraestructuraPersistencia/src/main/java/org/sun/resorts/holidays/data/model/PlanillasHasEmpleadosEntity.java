@@ -5,7 +5,7 @@
 // This Bean has a composite Primary Key  
 
 
-package org.sun.resorts.holidays.model.jpa;
+package org.sun.resorts.holidays.data.model;
 
 import java.io.Serializable;
 

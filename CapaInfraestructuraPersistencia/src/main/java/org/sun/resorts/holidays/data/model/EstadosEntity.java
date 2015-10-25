@@ -4,30 +4,31 @@
  */
 // This Bean has a basic Primary Key (not composite) 
 
-package org.sun.resorts.holidays.model.jpa;
+package org.sun.resorts.holidays.data.model;
 
 import java.io.Serializable;
 
 //import javax.validation.constraints.* ;
 //import org.hibernate.validator.constraints.* ;
 
+import java.util.List;
 
 import javax.persistence.*;
 
 /**
- * Persistent class for entity stored in table "usuarios"
+ * Persistent class for entity stored in table "estados"
  *
  * @author Telosys Tools Generator
  *
  */
 
 @Entity
-@Table(name="usuarios" )
+@Table(name="estados" )
 // Define named queries here
 @NamedQueries ( {
-  @NamedQuery ( name="UsuariosEntity.countAll", query="SELECT COUNT(x) FROM UsuariosEntity x" )
+  @NamedQuery ( name="EstadosEntity.countAll", query="SELECT COUNT(x) FROM EstadosEntity x" )
 } )
-public class UsuariosEntity implements Serializable {
+public class EstadosEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -36,73 +37,82 @@ public class UsuariosEntity implements Serializable {
     //----------------------------------------------------------------------
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="idUSUARIOS", nullable=false)
-    private Integer    idusuarios   ;
+    @Column(name="idESTADOS", nullable=false)
+    private Integer    idestados    ;
 
 
     //----------------------------------------------------------------------
     // ENTITY DATA FIELDS 
     //----------------------------------------------------------------------    
-    @Column(name="USUARIO", nullable=false, length=45)
-    private String     usuario      ;
-
-    @Column(name="PASSWORD", nullable=false, length=45)
-    private String     password     ;
+    @Column(name="DESCRIPCION", nullable=false, length=50)
+    private String     descripcion  ;
 
 
 
     //----------------------------------------------------------------------
     // ENTITY LINKS ( RELATIONSHIP )
     //----------------------------------------------------------------------
-    @OneToOne(mappedBy="usuarios", targetEntity=EmpleadosEntity.class)
-    private EmpleadosEntity listOfEmpleados;
+    @OneToMany(mappedBy="estados", targetEntity=PlanillasEntity.class)
+    private List<PlanillasEntity> listOfPlanillas;
+
+    @OneToMany(mappedBy="estados", targetEntity=DiasFestivosPendientesEntity.class)
+    private List<DiasFestivosPendientesEntity> listOfDiasFestivosPendientes;
+
+    @OneToMany(mappedBy="estados", targetEntity=VacacionesEntity.class)
+    private List<VacacionesEntity> listOfVacaciones;
 
 
     //----------------------------------------------------------------------
     // CONSTRUCTOR(S)
     //----------------------------------------------------------------------
-    public UsuariosEntity() {
+    public EstadosEntity() {
 		super();
     }
     
     //----------------------------------------------------------------------
     // GETTER & SETTER FOR THE KEY FIELD
     //----------------------------------------------------------------------
-    public void setIdusuarios( Integer idusuarios ) {
-        this.idusuarios = idusuarios ;
+    public void setIdestados( Integer idestados ) {
+        this.idestados = idestados ;
     }
-    public Integer getIdusuarios() {
-        return this.idusuarios;
+    public Integer getIdestados() {
+        return this.idestados;
     }
 
     //----------------------------------------------------------------------
     // GETTERS & SETTERS FOR FIELDS
     //----------------------------------------------------------------------
-    //--- DATABASE MAPPING : USUARIO ( VARCHAR ) 
-    public void setUsuario( String usuario ) {
-        this.usuario = usuario;
+    //--- DATABASE MAPPING : DESCRIPCION ( VARCHAR ) 
+    public void setDescripcion( String descripcion ) {
+        this.descripcion = descripcion;
     }
-    public String getUsuario() {
-        return this.usuario;
-    }
-
-    //--- DATABASE MAPPING : PASSWORD ( VARCHAR ) 
-    public void setPassword( String password ) {
-        this.password = password;
-    }
-    public String getPassword() {
-        return this.password;
+    public String getDescripcion() {
+        return this.descripcion;
     }
 
 
     //----------------------------------------------------------------------
     // GETTERS & SETTERS FOR LINKS
     //----------------------------------------------------------------------
-    public void setListOfEmpleados( EmpleadosEntity listOfEmpleados ) {
-        this.listOfEmpleados = listOfEmpleados;
+    public void setListOfPlanillas( List<PlanillasEntity> listOfPlanillas ) {
+        this.listOfPlanillas = listOfPlanillas;
     }
-    public EmpleadosEntity getListOfEmpleados() {
-        return this.listOfEmpleados;
+    public List<PlanillasEntity> getListOfPlanillas() {
+        return this.listOfPlanillas;
+    }
+
+    public void setListOfDiasFestivosPendientes( List<DiasFestivosPendientesEntity> listOfDiasFestivosPendientes ) {
+        this.listOfDiasFestivosPendientes = listOfDiasFestivosPendientes;
+    }
+    public List<DiasFestivosPendientesEntity> getListOfDiasFestivosPendientes() {
+        return this.listOfDiasFestivosPendientes;
+    }
+
+    public void setListOfVacaciones( List<VacacionesEntity> listOfVacaciones ) {
+        this.listOfVacaciones = listOfVacaciones;
+    }
+    public List<VacacionesEntity> getListOfVacaciones() {
+        return this.listOfVacaciones;
     }
 
 
@@ -112,11 +122,9 @@ public class UsuariosEntity implements Serializable {
     public String toString() { 
         StringBuffer sb = new StringBuffer(); 
         sb.append("["); 
-        sb.append(idusuarios);
+        sb.append(idestados);
         sb.append("]:"); 
-        sb.append(usuario);
-        sb.append("|");
-        sb.append(password);
+        sb.append(descripcion);
         return sb.toString(); 
     } 
 

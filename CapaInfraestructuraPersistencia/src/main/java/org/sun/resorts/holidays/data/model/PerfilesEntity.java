@@ -4,7 +4,7 @@
  */
 // This Bean has a basic Primary Key (not composite) 
 
-package org.sun.resorts.holidays.model.jpa;
+package org.sun.resorts.holidays.data.model;
 
 import java.io.Serializable;
 
@@ -16,19 +16,19 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
- * Persistent class for entity stored in table "tipo_fecha"
+ * Persistent class for entity stored in table "perfiles"
  *
  * @author Telosys Tools Generator
  *
  */
 
 @Entity
-@Table(name="tipo_fecha" )
+@Table(name="perfiles" )
 // Define named queries here
 @NamedQueries ( {
-  @NamedQuery ( name="TipoFechaEntity.countAll", query="SELECT COUNT(x) FROM TipoFechaEntity x" )
+  @NamedQuery ( name="PerfilesEntity.countAll", query="SELECT COUNT(x) FROM PerfilesEntity x" )
 } )
-public class TipoFechaEntity implements Serializable {
+public class PerfilesEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,8 +37,8 @@ public class TipoFechaEntity implements Serializable {
     //----------------------------------------------------------------------
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="idTIPO_FECHA", nullable=false)
-    private Integer    idtipoFecha  ;
+    @Column(name="idPERFILES", nullable=false)
+    private Integer    idperfiles   ;
 
 
     //----------------------------------------------------------------------
@@ -52,25 +52,25 @@ public class TipoFechaEntity implements Serializable {
     //----------------------------------------------------------------------
     // ENTITY LINKS ( RELATIONSHIP )
     //----------------------------------------------------------------------
-    @OneToMany(mappedBy="tipoFecha", targetEntity=PlanillasEntity.class)
-    private List<PlanillasEntity> listOfPlanillas;
+    @OneToMany(mappedBy="perfiles", targetEntity=EmpleadosEntity.class)
+    private List<EmpleadosEntity> listOfEmpleados;
 
 
     //----------------------------------------------------------------------
     // CONSTRUCTOR(S)
     //----------------------------------------------------------------------
-    public TipoFechaEntity() {
+    public PerfilesEntity() {
 		super();
     }
     
     //----------------------------------------------------------------------
     // GETTER & SETTER FOR THE KEY FIELD
     //----------------------------------------------------------------------
-    public void setIdtipoFecha( Integer idtipoFecha ) {
-        this.idtipoFecha = idtipoFecha ;
+    public void setIdperfiles( Integer idperfiles ) {
+        this.idperfiles = idperfiles ;
     }
-    public Integer getIdtipoFecha() {
-        return this.idtipoFecha;
+    public Integer getIdperfiles() {
+        return this.idperfiles;
     }
 
     //----------------------------------------------------------------------
@@ -88,11 +88,11 @@ public class TipoFechaEntity implements Serializable {
     //----------------------------------------------------------------------
     // GETTERS & SETTERS FOR LINKS
     //----------------------------------------------------------------------
-    public void setListOfPlanillas( List<PlanillasEntity> listOfPlanillas ) {
-        this.listOfPlanillas = listOfPlanillas;
+    public void setListOfEmpleados( List<EmpleadosEntity> listOfEmpleados ) {
+        this.listOfEmpleados = listOfEmpleados;
     }
-    public List<PlanillasEntity> getListOfPlanillas() {
-        return this.listOfPlanillas;
+    public List<EmpleadosEntity> getListOfEmpleados() {
+        return this.listOfEmpleados;
     }
 
 
@@ -102,7 +102,7 @@ public class TipoFechaEntity implements Serializable {
     public String toString() { 
         StringBuffer sb = new StringBuffer(); 
         sb.append("["); 
-        sb.append(idtipoFecha);
+        sb.append(idperfiles);
         sb.append("]:"); 
         sb.append(descripcion);
         return sb.toString(); 
