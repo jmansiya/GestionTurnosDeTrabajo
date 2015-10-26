@@ -70,7 +70,7 @@ public class HorarioEntity implements Serializable {
     @ManyToOne
     @JoinColumns({    
   	  @JoinColumn(name = "ID_TURNO_TRABAJO", referencedColumnName = "idTURNOS_DE_TRABAJO"),
-  	  @JoinColumn(name = "ID_PUESTO_TRABAJO", referencedColumnName = "ID_PUESTO_TRABAJO")
+  	  @JoinColumn(name = "ID_PUESTO_TRABAJO_AS", referencedColumnName = "ID_PUESTO_TRABAJO")
   	})
     private TurnosDeTrabajoEntity turnosDeTrabajo;
 

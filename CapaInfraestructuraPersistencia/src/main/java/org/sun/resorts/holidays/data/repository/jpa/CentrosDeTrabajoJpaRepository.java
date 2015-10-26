@@ -11,7 +11,7 @@ import org.sun.resorts.holidays.data.model.CentrosDeTrabajoEntity;
 public interface CentrosDeTrabajoJpaRepository extends JpaRepository<CentrosDeTrabajoEntity, Integer> {
 
 	@Modifying
-	@Query("update CentrosDeTrabajoEntity c set c.nombre= ?1, c.descripcion= ?2, c.parking= ?3, c.piscina = ?4, c.numHabitaciones= ?5, , c.numEstrellas= ?6 where c.idcentrosDeTrabajo= ?7")
+	@Query("update CentrosDeTrabajoEntity c set c.nombre= ?1, c.descripcion= ?2, c.parking= ?3, c.piscina = ?4, c.numHabitaciones= ?5, c.numEstrellas= ?6 where c.idcentrosDeTrabajo= ?7")
 	public int setCentroTrabajoById(String nombre, String descripcion, boolean parking, boolean piscina, int numHabitaciones, int numEstralleas, Integer id);
 	
 	@Modifying

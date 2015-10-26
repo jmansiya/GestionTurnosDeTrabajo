@@ -68,7 +68,7 @@ public class EmpleadosEntity implements Serializable {
     @Column(name="FECHA_INCORPORACION", nullable=false)
     private Date       fechaIncorporacion ;
 
-    @Column(name="DNI", nullable=false, length=8)
+    @Column(name="DNI", nullable=false, length=9)
     private String     dni          ;
 
     @Column(name="NUM_DIAS_VACACIONES", nullable=false)
@@ -123,7 +123,7 @@ public class EmpleadosEntity implements Serializable {
     @OneToMany(mappedBy="empleados", targetEntity=VacacionesEntity.class)
     private List<VacacionesEntity> listOfVacaciones;
 
-    @OneToOne(mappedBy="empleados", targetEntity=CentrosDeTrabajoEntity.class)
+    @OneToOne(mappedBy="administrador", targetEntity=CentrosDeTrabajoEntity.class)
     private CentrosDeTrabajoEntity listOfCentrosDeTrabajo;
 
     @OneToOne(mappedBy="empleados", targetEntity=PuestoDeTrabajoEntity.class)

@@ -8,4 +8,6 @@
   <artifactId>CapaDeNegocios</artifactId>
   <name>CapaDeNegocios</name>
   <description>Será la capa que contenga el negocio de la aplicación</description>
+  <groupId>org.sun.resorts.holidays.negocio</groupId>
+  <version>0.0.1-SNAPSHOT</version>
 </project>

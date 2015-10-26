@@ -12,5 +12,6 @@
   	
   	
   	<module>../CapaInfraestructuraPersistencia</module>
+  	<module>CapaTransversal</module>
   </modules>
 </project>
