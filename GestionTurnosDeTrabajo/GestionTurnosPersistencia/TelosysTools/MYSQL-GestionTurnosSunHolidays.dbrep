@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="MYSQL-GestionTurnosSunHolidays" databaseProductName="MySQL" generation="2015-10-28 21:32:46">
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="CentrosDeTrabajo" name="centros_de_trabajo" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idCENTROS_DE_TRABAJO" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idcentrosDeTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idcentros De Trabajo" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="NOMBRE" dbNotNull="false" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="DESCRIPCION" dbNotNull="false" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="descripcion" javaType="java.lang.String" jdbcTypeCode="12" label="Descripcion" maxLength="100" notNull="false" selected="true"/>
+<column dbDefaultValue="0" dbName="PARKING" dbNotNull="true" dbPosition="4" dbSize="0" dbTypeName="BIT" inputType="checkbox" javaName="parking" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Parking" notNull="true" selected="true"/>
+<column dbDefaultValue="0" dbName="PISCINA" dbNotNull="true" dbPosition="5" dbSize="0" dbTypeName="BIT" inputType="checkbox" javaName="piscina" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Piscina" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="NUM_HABITACIONES" dbNotNull="true" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="numHabitaciones" javaType="java.lang.Integer" jdbcTypeCode="4" label="Num Habitaciones" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="NUM_ESTRELLAS" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="numEstrellas" javaType="java.lang.Integer" jdbcTypeCode="4" label="Num Estrellas" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_ADMINISTRADOR" dbNotNull="false" dbPosition="8" dbSize="10" dbTypeName="INT" inputType="number" javaName="idAdministrador" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Administrador" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_DIRECCION" dbNotNull="false" dbPosition="9" dbSize="10" dbTypeName="INT" inputType="number" javaName="idDireccion" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Direccion" notNull="false" selected="true"/>
+<fk name="fk_CENTROS_DE_TRABAJO_DIRECCION1">
+<fkcol colname="ID_DIRECCION" colref="idDIRECCION" deferrable="7" deleterule="3" sequence="1" tablename="centros_de_trabajo" tableref="direccion" updaterule="3"/>
+</fk>
+<fk name="fk_CENTROS_DE_TRABAJO_EMPLEADOS1">
+<fkcol colname="ID_ADMINISTRADOR" colref="idEMPLEADOS" deferrable="7" deleterule="3" sequence="1" tablename="centros_de_trabajo" tableref="empleados" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_CENTROS_DE_TRABAJO_DIRECCION1" id="LINK_FK_fk_CENTROS_DE_TRABAJO_DIRECCION1_O" inverseSideOf="" javaName="direccion" javaType="Direccion" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="centros_de_trabajo" targetEntity="Direccion" targetTableName="direccion" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_DIRECCION" nullable="true" referencedColumnName="idDIRECCION" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_PUESTO_DE_TRABAJO_CENTROS_DE_TRABAJO1" id="LINK_FK_fk_PUESTO_DE_TRABAJO_CENTROS_DE_TRABAJO1_I" inverseSideOf="LINK_FK_fk_PUESTO_DE_TRABAJO_CENTROS_DE_TRABAJO1_O" javaName="listOfPuestoDeTrabajo" javaType="java.util.List" joinTableName="" mappedBy="centrosDeTrabajo" optional="UNDEFINED" owningSide="false" sourceTableName="centros_de_trabajo" targetEntity="PuestoDeTrabajo" targetTableName="puesto_de_trabajo" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_CENTROS_DE_TRABAJO_EMPLEADOS1" id="LINK_FK_fk_CENTROS_DE_TRABAJO_EMPLEADOS1_O" inverseSideOf="" javaName="empleados" javaType="Empleados" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="centros_de_trabajo" targetEntity="Empleados" targetTableName="empleados" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_ADMINISTRADOR" nullable="true" referencedColumnName="idEMPLEADOS" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="DetallePlanilla" name="detalle_planilla" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idDETALLE_PLANILLA" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="iddetallePlanilla" javaType="java.lang.Integer" jdbcTypeCode="4" label="Iddetalle Planilla" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_INICIO" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaInicio" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Inicio" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_FIN" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaFin" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Fin" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="OBSERVACIONES" dbNotNull="false" dbPosition="4" dbSize="50" dbTypeName="VARCHAR" inputType="text" javaName="observaciones" javaType="java.lang.String" jdbcTypeCode="12" label="Observaciones" maxLength="50" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_DETALLE_PLANILLA1" id="LINK_FK_fk_PLANILLAS_DETALLE_PLANILLA1_I" inverseSideOf="LINK_FK_fk_PLANILLAS_DETALLE_PLANILLA1_O" javaName="listOfPlanillas" javaType="java.util.List" joinTableName="" mappedBy="detallePlanilla" optional="UNDEFINED" owningSide="false" sourceTableName="detalle_planilla" targetEntity="Planillas" targetTableName="planillas" used="true"/>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="Direccion" name="direccion" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idDIRECCION" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="iddireccion" javaType="java.lang.Integer" jdbcTypeCode="4" label="Iddireccion" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="DIRECCION" dbNotNull="true" dbPosition="2" dbSize="65" dbTypeName="VARCHAR" inputType="text" javaName="direccion" javaType="java.lang.String" jdbcTypeCode="12" label="Direccion" maxLength="65" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="CODIGO_POSTAL" dbNotNull="true" dbPosition="3" dbSize="5" dbTypeName="VARCHAR" inputType="text" javaName="codigoPostal" javaType="java.lang.String" jdbcTypeCode="12" label="Codigo Postal" maxLength="5" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="LOCALIDAD" dbNotNull="false" dbPosition="4" dbSize="55" dbTypeName="VARCHAR" inputType="text" javaName="localidad" javaType="java.lang.String" jdbcTypeCode="12" label="Localidad" maxLength="55" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="PROVINCIA" dbNotNull="false" dbPosition="5" dbSize="55" dbTypeName="VARCHAR" inputType="text" javaName="provincia" javaType="java.lang.String" jdbcTypeCode="12" label="Provincia" maxLength="55" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="PAIS" dbNotNull="false" dbPosition="6" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="pais" javaType="java.lang.String" jdbcTypeCode="12" label="Pais" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_DIRECCION" id="LINK_FK_fk_EMPLEADOS_DIRECCION_I" inverseSideOf="LINK_FK_fk_EMPLEADOS_DIRECCION_O" javaName="listOfEmpleados" javaType="java.util.List" joinTableName="" mappedBy="direccion" optional="UNDEFINED" owningSide="false" sourceTableName="direccion" targetEntity="Empleados" targetTableName="empleados" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_CENTROS_DE_TRABAJO_DIRECCION1" id="LINK_FK_fk_CENTROS_DE_TRABAJO_DIRECCION1_I" inverseSideOf="LINK_FK_fk_CENTROS_DE_TRABAJO_DIRECCION1_O" javaName="listOfCentrosDeTrabajo" javaType="java.util.List" joinTableName="" mappedBy="direccion" optional="UNDEFINED" owningSide="false" sourceTableName="direccion" targetEntity="CentrosDeTrabajo" targetTableName="centros_de_trabajo" used="true"/>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="Empleados" name="empleados" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idEMPLEADOS" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idempleados" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idempleados" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="NOMBRE" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="APELLIDO1" dbNotNull="false" dbPosition="3" dbSize="50" dbTypeName="VARCHAR" inputType="text" javaName="apellido1" javaType="java.lang.String" jdbcTypeCode="12" label="Apellido1" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="APELLIDO2" dbNotNull="false" dbPosition="4" dbSize="50" dbTypeName="VARCHAR" inputType="text" javaName="apellido2" javaType="java.lang.String" jdbcTypeCode="12" label="Apellido2" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="TELEFONO_MOVIL" dbNotNull="true" dbPosition="5" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="telefonoMovil" javaType="java.lang.String" jdbcTypeCode="12" label="Telefono Movil" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="TELEFONO_FIJO" dbNotNull="false" dbPosition="6" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="telefonoFijo" javaType="java.lang.String" jdbcTypeCode="12" label="Telefono Fijo" maxLength="45" notNull="false" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_NACIMIENTO" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaNacimiento" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Nacimiento" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_INCORPORACION" dbNotNull="true" dbPosition="8" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaIncorporacion" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Incorporacion" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_DIRECCION" dbNotNull="false" dbPosition="9" dbSize="10" dbTypeName="INT" inputType="number" javaName="idDireccion" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Direccion" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="DNI" dbNotNull="true" dbPosition="10" dbSize="9" dbTypeName="VARCHAR" inputType="text" javaName="dni" javaType="java.lang.String" jdbcTypeCode="12" label="Dni" maxLength="9" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="NUM_DIAS_VACACIONES" dbNotNull="true" dbPosition="11" dbSize="10" dbTypeName="INT" inputType="number" javaName="numDiasVacaciones" javaType="java.lang.Integer" jdbcTypeCode="4" label="Num Dias Vacaciones" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="EMAIL" dbNotNull="true" dbPosition="12" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="email" javaType="java.lang.String" jdbcTypeCode="12" label="Email" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="PERFILES_idPERFILES" dbNotNull="true" dbPosition="13" dbSize="10" dbTypeName="INT" inputType="number" javaName="perfilesIdperfiles" javaType="java.lang.Integer" jdbcTypeCode="4" label="Perfiles Idperfiles" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_TURNO_TRABAJO" dbNotNull="false" dbPosition="14" dbSize="10" dbTypeName="INT" inputType="number" javaName="idTurnoTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Turno Trabajo" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="NUM_DIAS_FESTIVOS_PENDIENTES" dbNotNull="true" dbPosition="15" dbSize="10" dbTypeName="INT" inputType="number" javaName="numDiasFestivosPendientes" javaType="java.lang.Integer" jdbcTypeCode="4" label="Num Dias Festivos Pendientes" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="NICK_USUARIO" dbNotNull="true" dbPosition="16" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nickUsuario" javaType="java.lang.String" jdbcTypeCode="12" label="Nick Usuario" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="PASSWORD" dbNotNull="true" dbPosition="17" dbSize="65" dbTypeName="VARCHAR" inputType="text" javaName="password" javaType="java.lang.String" jdbcTypeCode="12" label="Password" maxLength="65" notEmpty="true" notNull="true" selected="true"/>
+<fk name="fk_EMPLEADOS_DIRECCION">
+<fkcol colname="ID_DIRECCION" colref="idDIRECCION" deferrable="7" deleterule="3" sequence="1" tablename="empleados" tableref="direccion" updaterule="3"/>
+</fk>
+<fk name="fk_EMPLEADOS_PERFILES1">
+<fkcol colname="PERFILES_idPERFILES" colref="idPERFILES" deferrable="7" deleterule="3" sequence="1" tablename="empleados" tableref="perfiles" updaterule="3"/>
+</fk>
+<fk name="fk_EMPLEADOS_TURNOS_DE_TRABAJO1">
+<fkcol colname="ID_TURNO_TRABAJO" colref="idTURNOS_DE_TRABAJO" deferrable="7" deleterule="3" sequence="1" tablename="empleados" tableref="turnos_de_trabajo" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_CENTROS_DE_TRABAJO_EMPLEADOS1" id="LINK_FK_fk_CENTROS_DE_TRABAJO_EMPLEADOS1_I" inverseSideOf="LINK_FK_fk_CENTROS_DE_TRABAJO_EMPLEADOS1_O" javaName="listOfCentrosDeTrabajo" javaType="java.util.List" joinTableName="" mappedBy="empleados" optional="UNDEFINED" owningSide="false" sourceTableName="empleados" targetEntity="CentrosDeTrabajo" targetTableName="centros_de_trabajo" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_VACACIONES_EMPLEADOS1" id="LINK_FK_fk_VACACIONES_EMPLEADOS1_I" inverseSideOf="LINK_FK_fk_VACACIONES_EMPLEADOS1_O" javaName="listOfVacaciones" javaType="java.util.List" joinTableName="" mappedBy="empleados" optional="UNDEFINED" owningSide="false" sourceTableName="empleados" targetEntity="Vacaciones" targetTableName="vacaciones" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_DIRECCION" id="LINK_FK_fk_EMPLEADOS_DIRECCION_O" inverseSideOf="" javaName="direccion" javaType="Direccion" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="empleados" targetEntity="Direccion" targetTableName="direccion" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_DIRECCION" nullable="true" referencedColumnName="idDIRECCION" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_TURNOS_DE_TRABAJO1" id="LINK_FK_fk_EMPLEADOS_TURNOS_DE_TRABAJO1_O" inverseSideOf="" javaName="turnosDeTrabajo" javaType="TurnosDeTrabajo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="empleados" targetEntity="TurnosDeTrabajo" targetTableName="turnos_de_trabajo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_TURNO_TRABAJO" nullable="true" referencedColumnName="idTURNOS_DE_TRABAJO" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_EMPLEADOS1" id="LINK_FK_fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_EMPLEADOS1_I" inverseSideOf="LINK_FK_fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_EMPLEADOS1_O" javaName="listOfTurnosTrabajoEspeciales" javaType="java.util.List" joinTableName="" mappedBy="empleados" optional="UNDEFINED" owningSide="false" sourceTableName="empleados" targetEntity="TurnosTrabajoEspeciales" targetTableName="turnos_trabajo_especiales" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_PUESTO_DE_TRABAJO_EMPLEADOS1" id="LINK_FK_fk_PUESTO_DE_TRABAJO_EMPLEADOS1_I" inverseSideOf="LINK_FK_fk_PUESTO_DE_TRABAJO_EMPLEADOS1_O" javaName="listOfPuestoDeTrabajo" javaType="java.util.List" joinTableName="" mappedBy="empleados" optional="UNDEFINED" owningSide="false" sourceTableName="empleados" targetEntity="PuestoDeTrabajo" targetTableName="puesto_de_trabajo" used="true"/>
+<link cardinality="ManyToMany" cascade="" fetch="DEFAULT" foreignKeyName="" id="LINK_JT_planillas_has_empleados_O" inverseSideOf="" javaName="listOfPlanillas" javaType="java.util.List" joinTableName="planillas_has_empleados" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="empleados" targetEntity="Planillas" targetTableName="planillas" used="true">
+<joinTable name="planillas_has_empleados">
+<joinColumns>
+<joinColumn insertable="false" name="EMPLEADOS_idEMPLEADOS" nullable="true" referencedColumnName="idEMPLEADOS" unique="false" updatable="false"/>
+</joinColumns>
+<inverseJoinColumns>
+<joinColumn insertable="false" name="PLANILLAS_idPLANILLAS" nullable="true" referencedColumnName="idPLANILLAS" unique="false" updatable="false"/>
+</inverseJoinColumns>
+</joinTable>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_PERFILES1" id="LINK_FK_fk_EMPLEADOS_PERFILES1_O" inverseSideOf="" javaName="perfiles" javaType="Perfiles" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="empleados" targetEntity="Perfiles" targetTableName="perfiles" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="PERFILES_idPERFILES" nullable="true" referencedColumnName="idPERFILES" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="Estados" name="estados" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idESTADOS" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idestados" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idestados" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="DESCRIPCION" dbNotNull="true" dbPosition="2" dbSize="50" dbTypeName="VARCHAR" inputType="text" javaName="descripcion" javaType="java.lang.String" jdbcTypeCode="12" label="Descripcion" maxLength="50" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_ESTADOS1" id="LINK_FK_fk_PLANILLAS_ESTADOS1_I" inverseSideOf="LINK_FK_fk_PLANILLAS_ESTADOS1_O" javaName="listOfPlanillas" javaType="java.util.List" joinTableName="" mappedBy="estados" optional="UNDEFINED" owningSide="false" sourceTableName="estados" targetEntity="Planillas" targetTableName="planillas" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_VACACIONES_DESCRIPCION_ESTADOS_SOLICITUDES1" id="LINK_FK_fk_VACACIONES_DESCRIPCION_ESTADOS_SOLICITUDES1_I" inverseSideOf="LINK_FK_fk_VACACIONES_DESCRIPCION_ESTADOS_SOLICITUDES1_O" javaName="listOfVacaciones" javaType="java.util.List" joinTableName="" mappedBy="estados" optional="UNDEFINED" owningSide="false" sourceTableName="estados" targetEntity="Vacaciones" targetTableName="vacaciones" used="true"/>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="Horario" name="horario" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idHORARIO" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idhorario" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idhorario" notNull="true" selected="true"/>
+<column dateType="T" dbDefaultValue="" dbName="HORA_INICIO" dbNotNull="true" dbPosition="2" dbSize="8" dbTypeName="TIME" inputType="time" javaName="horaInicio" javaType="java.util.Date" jdbcTypeCode="92" label="Hora Inicio" notNull="true" selected="true"/>
+<column dateType="T" dbDefaultValue="" dbName="HORA_FIN" dbNotNull="true" dbPosition="3" dbSize="8" dbTypeName="TIME" inputType="time" javaName="horaFin" javaType="java.util.Date" jdbcTypeCode="92" label="Hora Fin" notNull="true" selected="true"/>
+<column dateType="T" dbDefaultValue="" dbName="HORA_INICIO_ESPECIAL" dbNotNull="false" dbPosition="4" dbSize="8" dbTypeName="TIME" inputType="time" javaName="horaInicioEspecial" javaType="java.util.Date" jdbcTypeCode="92" label="Hora Inicio Especial" notNull="false" selected="true"/>
+<column dateType="T" dbDefaultValue="" dbName="HORA_FIN_ESPECIAL" dbNotNull="false" dbPosition="5" dbSize="8" dbTypeName="TIME" inputType="time" javaName="horaFinEspecial" javaType="java.util.Date" jdbcTypeCode="92" label="Hora Fin Especial" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_PUESTO_TRABAJO" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="idPuestoTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Puesto Trabajo" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_TURNO_TRABAJO" dbNotNull="false" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="idTurnoTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Turno Trabajo" notNull="false" selected="true"/>
+<fk name="fk_HORARIO_PUESTO_DE_TRABAJO1">
+<fkcol colname="ID_PUESTO_TRABAJO" colref="idPUESTO_DE_TRABAJO" deferrable="7" deleterule="3" sequence="1" tablename="horario" tableref="puesto_de_trabajo" updaterule="3"/>
+</fk>
+<fk name="fk_HORARIO_TURNOS_DE_TRABAJO1">
+<fkcol colname="ID_TURNO_TRABAJO" colref="idTURNOS_DE_TRABAJO" deferrable="7" deleterule="3" sequence="1" tablename="horario" tableref="turnos_de_trabajo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_HORARIO_PUESTO_DE_TRABAJO1" id="LINK_FK_fk_HORARIO_PUESTO_DE_TRABAJO1_O" inverseSideOf="" javaName="puestoDeTrabajo" javaType="PuestoDeTrabajo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="horario" targetEntity="PuestoDeTrabajo" targetTableName="puesto_de_trabajo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_PUESTO_TRABAJO" nullable="true" referencedColumnName="idPUESTO_DE_TRABAJO" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_HORARIO_TURNOS_DE_TRABAJO1" id="LINK_FK_fk_HORARIO_TURNOS_DE_TRABAJO1_O" inverseSideOf="" javaName="turnosDeTrabajo" javaType="TurnosDeTrabajo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="horario" targetEntity="TurnosDeTrabajo" targetTableName="turnos_de_trabajo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_TURNO_TRABAJO" nullable="true" referencedColumnName="idTURNOS_DE_TRABAJO" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="Perfiles" name="perfiles" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idPERFILES" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idperfiles" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idperfiles" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="DESCRIPCION" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="descripcion" javaType="java.lang.String" jdbcTypeCode="12" label="Descripcion" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_PERFILES1" id="LINK_FK_fk_EMPLEADOS_PERFILES1_I" inverseSideOf="LINK_FK_fk_EMPLEADOS_PERFILES1_O" javaName="listOfEmpleados" javaType="java.util.List" joinTableName="" mappedBy="perfiles" optional="UNDEFINED" owningSide="false" sourceTableName="perfiles" targetEntity="Empleados" targetTableName="empleados" used="true"/>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="Planillas" name="planillas" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idPLANILLAS" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idplanillas" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idplanillas" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fecha" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="OBSERVACIONES" dbNotNull="false" dbPosition="3" dbSize="50" dbTypeName="VARCHAR" inputType="text" javaName="observaciones" javaType="java.lang.String" jdbcTypeCode="12" label="Observaciones" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_PUESTO_TRABAJO" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="idPuestoTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Puesto Trabajo" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_DETALLE" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="idDetalle" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Detalle" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_ESTADO" dbNotNull="true" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="idEstado" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Estado" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_TIPO_FECHA" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="idTipoFecha" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Tipo Fecha" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_VOLUMEN_ESPECIAL" dbNotNull="false" dbPosition="8" dbSize="10" dbTypeName="INT" inputType="number" javaName="idVolumenEspecial" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Volumen Especial" notNull="false" selected="true"/>
+<fk name="fk_PLANILLAS_DETALLE_PLANILLA1">
+<fkcol colname="ID_DETALLE" colref="idDETALLE_PLANILLA" deferrable="7" deleterule="3" sequence="1" tablename="planillas" tableref="detalle_planilla" updaterule="3"/>
+</fk>
+<fk name="fk_PLANILLAS_ESTADOS1">
+<fkcol colname="ID_ESTADO" colref="idESTADOS" deferrable="7" deleterule="3" sequence="1" tablename="planillas" tableref="estados" updaterule="3"/>
+</fk>
+<fk name="fk_PLANILLAS_PUESTO_DE_TRABAJO1">
+<fkcol colname="ID_PUESTO_TRABAJO" colref="idPUESTO_DE_TRABAJO" deferrable="7" deleterule="3" sequence="1" tablename="planillas" tableref="puesto_de_trabajo" updaterule="3"/>
+</fk>
+<fk name="fk_PLANILLAS_TIPO_DIA1">
+<fkcol colname="ID_TIPO_FECHA" colref="idTIPO_FECHA" deferrable="7" deleterule="3" sequence="1" tablename="planillas" tableref="tipo_fecha" updaterule="3"/>
+</fk>
+<fk name="fk_PLANILLAS_VOLUMEN_TRABAJO_ESPECIAL1">
+<fkcol colname="ID_VOLUMEN_ESPECIAL" colref="idVOLUMEN" deferrable="7" deleterule="3" sequence="1" tablename="planillas" tableref="volumen_trabajo_especial" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_PUESTO_DE_TRABAJO1" id="LINK_FK_fk_PLANILLAS_PUESTO_DE_TRABAJO1_O" inverseSideOf="" javaName="puestoDeTrabajo" javaType="PuestoDeTrabajo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="planillas" targetEntity="PuestoDeTrabajo" targetTableName="puesto_de_trabajo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_PUESTO_TRABAJO" nullable="true" referencedColumnName="idPUESTO_DE_TRABAJO" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_DETALLE_PLANILLA1" id="LINK_FK_fk_PLANILLAS_DETALLE_PLANILLA1_O" inverseSideOf="" javaName="detallePlanilla" javaType="DetallePlanilla" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="planillas" targetEntity="DetallePlanilla" targetTableName="detalle_planilla" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_DETALLE" nullable="true" referencedColumnName="idDETALLE_PLANILLA" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToMany" cascade="" fetch="DEFAULT" foreignKeyName="" id="LINK_JT_planillas_has_empleados_I" inverseSideOf="LINK_JT_planillas_has_empleados_O" javaName="listOfEmpleados" javaType="java.util.List" joinTableName="planillas_has_empleados" mappedBy="listOfPlanillas" optional="UNDEFINED" owningSide="false" sourceTableName="planillas" targetEntity="Empleados" targetTableName="empleados" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_VOLUMEN_TRABAJO_ESPECIAL1" id="LINK_FK_fk_PLANILLAS_VOLUMEN_TRABAJO_ESPECIAL1_O" inverseSideOf="" javaName="volumenTrabajoEspecial" javaType="VolumenTrabajoEspecial" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="planillas" targetEntity="VolumenTrabajoEspecial" targetTableName="volumen_trabajo_especial" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_VOLUMEN_ESPECIAL" nullable="true" referencedColumnName="idVOLUMEN" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_ESTADOS1" id="LINK_FK_fk_PLANILLAS_ESTADOS1_O" inverseSideOf="" javaName="estados" javaType="Estados" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="planillas" targetEntity="Estados" targetTableName="estados" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_ESTADO" nullable="true" referencedColumnName="idESTADOS" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_TIPO_DIA1" id="LINK_FK_fk_PLANILLAS_TIPO_DIA1_O" inverseSideOf="" javaName="tipoFecha" javaType="TipoFecha" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="planillas" targetEntity="TipoFecha" targetTableName="tipo_fecha" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_TIPO_FECHA" nullable="true" referencedColumnName="idTIPO_FECHA" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="PlanillasHasEmpleados" name="planillas_has_empleados" schema="">
+<column dbDefaultValue="" dbForeignKey="true" dbName="PLANILLAS_idPLANILLAS" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="planillasIdplanillas" javaType="java.lang.Integer" jdbcTypeCode="4" label="Planillas Idplanillas" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="EMPLEADOS_idEMPLEADOS" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="empleadosIdempleados" javaType="java.lang.Integer" jdbcTypeCode="4" label="Empleados Idempleados" notNull="true" selected="true"/>
+<fk name="fk_PLANILLAS_has_EMPLEADOS_EMPLEADOS1">
+<fkcol colname="EMPLEADOS_idEMPLEADOS" colref="idEMPLEADOS" deferrable="7" deleterule="3" sequence="1" tablename="planillas_has_empleados" tableref="empleados" updaterule="3"/>
+</fk>
+<fk name="fk_PLANILLAS_has_EMPLEADOS_PLANILLAS1">
+<fkcol colname="PLANILLAS_idPLANILLAS" colref="idPLANILLAS" deferrable="7" deleterule="3" sequence="1" tablename="planillas_has_empleados" tableref="planillas" updaterule="3"/>
+</fk>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="PuestoDeTrabajo" name="puesto_de_trabajo" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idPUESTO_DE_TRABAJO" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idpuestoDeTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idpuesto De Trabajo" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="NOMBRE" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="DESCRIPCION" dbNotNull="false" dbPosition="3" dbSize="85" dbTypeName="VARCHAR" inputType="text" javaName="descripcion" javaType="java.lang.String" jdbcTypeCode="12" label="Descripcion" maxLength="85" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_CENTROS_TRABAJO" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="idCentrosTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Centros Trabajo" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_SUPERVISOR" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="idSupervisor" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Supervisor" notNull="false" selected="true"/>
+<fk name="fk_PUESTO_DE_TRABAJO_CENTROS_DE_TRABAJO1">
+<fkcol colname="ID_CENTROS_TRABAJO" colref="idCENTROS_DE_TRABAJO" deferrable="7" deleterule="3" sequence="1" tablename="puesto_de_trabajo" tableref="centros_de_trabajo" updaterule="3"/>
+</fk>
+<fk name="fk_PUESTO_DE_TRABAJO_EMPLEADOS1">
+<fkcol colname="ID_SUPERVISOR" colref="idEMPLEADOS" deferrable="7" deleterule="3" sequence="1" tablename="puesto_de_trabajo" tableref="empleados" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_PUESTO_DE_TRABAJO_EMPLEADOS1" id="LINK_FK_fk_PUESTO_DE_TRABAJO_EMPLEADOS1_O" inverseSideOf="" javaName="empleados" javaType="Empleados" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="puesto_de_trabajo" targetEntity="Empleados" targetTableName="empleados" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_SUPERVISOR" nullable="true" referencedColumnName="idEMPLEADOS" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_TURNOS_DE_TRABAJO_PUESTO_DE_TRABAJO1" id="LINK_FK_fk_TURNOS_DE_TRABAJO_PUESTO_DE_TRABAJO1_I" inverseSideOf="LINK_FK_fk_TURNOS_DE_TRABAJO_PUESTO_DE_TRABAJO1_O" javaName="listOfTurnosDeTrabajo" javaType="java.util.List" joinTableName="" mappedBy="puestoDeTrabajo" optional="UNDEFINED" owningSide="false" sourceTableName="puesto_de_trabajo" targetEntity="TurnosDeTrabajo" targetTableName="turnos_de_trabajo" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_HORARIO_PUESTO_DE_TRABAJO1" id="LINK_FK_fk_HORARIO_PUESTO_DE_TRABAJO1_I" inverseSideOf="LINK_FK_fk_HORARIO_PUESTO_DE_TRABAJO1_O" javaName="listOfHorario" javaType="java.util.List" joinTableName="" mappedBy="puestoDeTrabajo" optional="UNDEFINED" owningSide="false" sourceTableName="puesto_de_trabajo" targetEntity="Horario" targetTableName="horario" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_PUESTO_DE_TRABAJO1" id="LINK_FK_fk_PLANILLAS_PUESTO_DE_TRABAJO1_I" inverseSideOf="LINK_FK_fk_PLANILLAS_PUESTO_DE_TRABAJO1_O" javaName="listOfPlanillas" javaType="java.util.List" joinTableName="" mappedBy="puestoDeTrabajo" optional="UNDEFINED" owningSide="false" sourceTableName="puesto_de_trabajo" targetEntity="Planillas" targetTableName="planillas" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_PUESTO_DE_TRABAJO_CENTROS_DE_TRABAJO1" id="LINK_FK_fk_PUESTO_DE_TRABAJO_CENTROS_DE_TRABAJO1_O" inverseSideOf="" javaName="centrosDeTrabajo" javaType="CentrosDeTrabajo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="puesto_de_trabajo" targetEntity="CentrosDeTrabajo" targetTableName="centros_de_trabajo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_CENTROS_TRABAJO" nullable="true" referencedColumnName="idCENTROS_DE_TRABAJO" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="TipoFecha" name="tipo_fecha" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idTIPO_FECHA" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idtipoFecha" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idtipo Fecha" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="DESCRIPCION" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="descripcion" javaType="java.lang.String" jdbcTypeCode="12" label="Descripcion" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_TIPO_DIA1" id="LINK_FK_fk_PLANILLAS_TIPO_DIA1_I" inverseSideOf="LINK_FK_fk_PLANILLAS_TIPO_DIA1_O" javaName="listOfPlanillas" javaType="java.util.List" joinTableName="" mappedBy="tipoFecha" optional="UNDEFINED" owningSide="false" sourceTableName="tipo_fecha" targetEntity="Planillas" targetTableName="planillas" used="true"/>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="TurnosDeTrabajo" name="turnos_de_trabajo" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idTURNOS_DE_TRABAJO" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idturnosDeTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idturnos De Trabajo" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="NOMBRE" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="DESCRIPCION" dbNotNull="false" dbPosition="3" dbSize="65" dbTypeName="VARCHAR" inputType="text" javaName="descripcion" javaType="java.lang.String" jdbcTypeCode="12" label="Descripcion" maxLength="65" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ID_PUESTO_TRABAJO" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="idPuestoTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id Puesto Trabajo" notNull="true" selected="true"/>
+<fk name="fk_TURNOS_DE_TRABAJO_PUESTO_DE_TRABAJO1">
+<fkcol colname="ID_PUESTO_TRABAJO" colref="idPUESTO_DE_TRABAJO" deferrable="7" deleterule="3" sequence="1" tablename="turnos_de_trabajo" tableref="puesto_de_trabajo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_TURNOS_DE_TRABAJO_PUESTO_DE_TRABAJO1" id="LINK_FK_fk_TURNOS_DE_TRABAJO_PUESTO_DE_TRABAJO1_O" inverseSideOf="" javaName="puestoDeTrabajo" javaType="PuestoDeTrabajo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="turnos_de_trabajo" targetEntity="PuestoDeTrabajo" targetTableName="puesto_de_trabajo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ID_PUESTO_TRABAJO" nullable="true" referencedColumnName="idPUESTO_DE_TRABAJO" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_TURNOS_DE_TRABAJO1" id="LINK_FK_fk_EMPLEADOS_TURNOS_DE_TRABAJO1_I" inverseSideOf="LINK_FK_fk_EMPLEADOS_TURNOS_DE_TRABAJO1_O" javaName="listOfEmpleados" javaType="java.util.List" joinTableName="" mappedBy="turnosDeTrabajo" optional="UNDEFINED" owningSide="false" sourceTableName="turnos_de_trabajo" targetEntity="Empleados" targetTableName="empleados" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_HORARIO_TURNOS_DE_TRABAJO1" id="LINK_FK_fk_HORARIO_TURNOS_DE_TRABAJO1_I" inverseSideOf="LINK_FK_fk_HORARIO_TURNOS_DE_TRABAJO1_O" javaName="listOfHorario" javaType="java.util.List" joinTableName="" mappedBy="turnosDeTrabajo" optional="UNDEFINED" owningSide="false" sourceTableName="turnos_de_trabajo" targetEntity="Horario" targetTableName="horario" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_TURNOS_DE_TRABAJO1" id="LINK_FK_fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_TURNOS_DE_TRABAJO1_I" inverseSideOf="LINK_FK_fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_TURNOS_DE_TRABAJO1_O" javaName="listOfTurnosTrabajoEspeciales" javaType="java.util.List" joinTableName="" mappedBy="turnosDeTrabajo" optional="UNDEFINED" owningSide="false" sourceTableName="turnos_de_trabajo" targetEntity="TurnosTrabajoEspeciales" targetTableName="turnos_trabajo_especiales" used="true"/>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="TurnosTrabajoEspeciales" name="turnos_trabajo_especiales" schema="">
+<column dbDefaultValue="" dbForeignKey="true" dbName="EMPLEADOS_idEMPLEADOS" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="empleadosIdempleados" javaType="java.lang.Integer" jdbcTypeCode="4" label="Empleados Idempleados" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="TURNOS_DE_TRABAJO_idTURNOS_DE_TRABAJO" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="turnosDeTrabajoIdturnosDeTrabajo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Turnos De Trabajo Idturnos De Trabajo" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_INICIO" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaInicio" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Inicio" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_FIN" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaFin" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Fin" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="OBSERVACIONES" dbNotNull="false" dbPosition="5" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="observaciones" javaType="java.lang.String" jdbcTypeCode="12" label="Observaciones" maxLength="45" notNull="false" selected="true"/>
+<fk name="fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_EMPLEADOS1">
+<fkcol colname="EMPLEADOS_idEMPLEADOS" colref="idEMPLEADOS" deferrable="7" deleterule="3" sequence="1" tablename="turnos_trabajo_especiales" tableref="empleados" updaterule="3"/>
+</fk>
+<fk name="fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_TURNOS_DE_TRABAJO1">
+<fkcol colname="TURNOS_DE_TRABAJO_idTURNOS_DE_TRABAJO" colref="idTURNOS_DE_TRABAJO" deferrable="7" deleterule="3" sequence="1" tablename="turnos_trabajo_especiales" tableref="turnos_de_trabajo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_TURNOS_DE_TRABAJO1" id="LINK_FK_fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_TURNOS_DE_TRABAJO1_O" inverseSideOf="" javaName="turnosDeTrabajo" javaType="TurnosDeTrabajo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="turnos_trabajo_especiales" targetEntity="TurnosDeTrabajo" targetTableName="turnos_de_trabajo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="TURNOS_DE_TRABAJO_idTURNOS_DE_TRABAJO" nullable="true" referencedColumnName="idTURNOS_DE_TRABAJO" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_EMPLEADOS1" id="LINK_FK_fk_EMPLEADOS_has_TURNOS_DE_TRABAJO_EMPLEADOS1_O" inverseSideOf="" javaName="empleados" javaType="Empleados" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="turnos_trabajo_especiales" targetEntity="Empleados" targetTableName="empleados" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="EMPLEADOS_idEMPLEADOS" nullable="true" referencedColumnName="idEMPLEADOS" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="Vacaciones" name="vacaciones" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idVACACIONES" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idvacaciones" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idvacaciones" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="OBSERVACIONES" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="observaciones" javaType="java.lang.String" jdbcTypeCode="12" label="Observaciones" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_VACACIONES" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaVacaciones" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Vacaciones" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="EMPLEADOS_idEMPLEADOS" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="empleadosIdempleados" javaType="java.lang.Integer" jdbcTypeCode="4" label="Empleados Idempleados" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="ESTADO" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="estado" javaType="java.lang.Integer" jdbcTypeCode="4" label="Estado" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="FESTIVO_PENDIENTE" dbNotNull="true" dbPosition="6" dbSize="0" dbTypeName="BIT" inputType="checkbox" javaName="festivoPendiente" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Festivo Pendiente" notNull="true" selected="true"/>
+<fk name="fk_VACACIONES_DESCRIPCION_ESTADOS_SOLICITUDES1">
+<fkcol colname="ESTADO" colref="idESTADOS" deferrable="7" deleterule="3" sequence="1" tablename="vacaciones" tableref="estados" updaterule="3"/>
+</fk>
+<fk name="fk_VACACIONES_EMPLEADOS1">
+<fkcol colname="EMPLEADOS_idEMPLEADOS" colref="idEMPLEADOS" deferrable="7" deleterule="3" sequence="1" tablename="vacaciones" tableref="empleados" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_VACACIONES_DESCRIPCION_ESTADOS_SOLICITUDES1" id="LINK_FK_fk_VACACIONES_DESCRIPCION_ESTADOS_SOLICITUDES1_O" inverseSideOf="" javaName="estados" javaType="Estados" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="vacaciones" targetEntity="Estados" targetTableName="estados" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ESTADO" nullable="true" referencedColumnName="idESTADOS" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_VACACIONES_EMPLEADOS1" id="LINK_FK_fk_VACACIONES_EMPLEADOS1_O" inverseSideOf="" javaName="empleados" javaType="Empleados" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="vacaciones" targetEntity="Empleados" targetTableName="empleados" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="EMPLEADOS_idEMPLEADOS" nullable="true" referencedColumnName="idEMPLEADOS" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="sunholidayresortsbbdd" databaseType="TABLE" javaBean="VolumenTrabajoEspecial" name="volumen_trabajo_especial" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="idVOLUMEN" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idvolumen" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idvolumen" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_INICIO" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaInicio" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Inicio" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="FECHA_FIN" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaFin" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha Fin" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="OBSERVACIONES" dbNotNull="false" dbPosition="4" dbSize="50" dbTypeName="VARCHAR" inputType="text" javaName="observaciones" javaType="java.lang.String" jdbcTypeCode="12" label="Observaciones" maxLength="50" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_PLANILLAS_VOLUMEN_TRABAJO_ESPECIAL1" id="LINK_FK_fk_PLANILLAS_VOLUMEN_TRABAJO_ESPECIAL1_I" inverseSideOf="LINK_FK_fk_PLANILLAS_VOLUMEN_TRABAJO_ESPECIAL1_O" javaName="listOfPlanillas" javaType="java.util.List" joinTableName="" mappedBy="volumenTrabajoEspecial" optional="UNDEFINED" owningSide="false" sourceTableName="volumen_trabajo_especial" targetEntity="Planillas" targetTableName="planillas" used="true"/>
+</table>
+</tableList>
+</root>

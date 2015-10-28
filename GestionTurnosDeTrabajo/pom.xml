@@ -11,7 +11,8 @@
   	<module>CapaDeNegocios</module>
   	
   	
-  	<module>../CapaInfraestructuraPersistencia</module>
+  	
   	<module>CapaTransversal</module>
+  	<module>GestionTurnosPersistencia</module>
   </modules>
 </project>
