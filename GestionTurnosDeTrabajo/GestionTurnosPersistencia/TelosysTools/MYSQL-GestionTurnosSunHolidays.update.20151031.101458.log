@@ -1,0 +1,53 @@
+Update date : Sat Oct 31 10:14:58 CET 2015
+ 
+ Table 'centros_de_trabajo' found in repository
+ (=) table 'centros_de_trabajo' unchanged
+ 
+ Table 'detalle_planilla' found in repository
+ . Column 'TIPO_FECHA_idTIPO_FECHA' added
+ . Foreign key 'fk_DETALLE_PLANILLA_TIPO_FECHA1' added
+ (*) table 'detalle_planilla' updated : 2 change(s)
+ 
+ Table 'detalle_planilla_has_empleados' found in repository
+ (=) table 'detalle_planilla_has_empleados' unchanged
+ 
+ Table 'direccion' found in repository
+ (=) table 'direccion' unchanged
+ 
+ Table 'empleados' found in repository
+ (=) table 'empleados' unchanged
+ 
+ Table 'estados' found in repository
+ (=) table 'estados' unchanged
+ 
+ Table 'horario' found in repository
+ (=) table 'horario' unchanged
+ 
+ Table 'perfiles' found in repository
+ (=) table 'perfiles' unchanged
+ 
+ Table 'planillas' found in repository
+ . Column 'ID_TIPO_FECHA' removed
+ . Foreign key 'fk_PLANILLAS_TIPO_DIA1' removed
+ (*) table 'planillas' updated : 2 change(s)
+ 
+ Table 'puesto_de_trabajo' found in repository
+ (=) table 'puesto_de_trabajo' unchanged
+ 
+ Table 'tipo_fecha' found in repository
+ (=) table 'tipo_fecha' unchanged
+ 
+ Table 'turnos_de_trabajo' found in repository
+ (=) table 'turnos_de_trabajo' unchanged
+ 
+ Table 'turnos_de_trabajo_has_detalle_planilla' found in repository
+ (=) table 'turnos_de_trabajo_has_detalle_planilla' unchanged
+ 
+ Table 'usuarios' found in repository
+ (=) table 'usuarios' unchanged
+ 
+ Table 'vacaciones' found in repository
+ (=) table 'vacaciones' unchanged
+ 
+ Table 'volumen_trabajo_especial' found in repository
+ (=) table 'volumen_trabajo_especial' unchanged

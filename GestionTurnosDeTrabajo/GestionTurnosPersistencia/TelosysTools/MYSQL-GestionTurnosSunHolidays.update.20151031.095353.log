@@ -1,0 +1,83 @@
+Update date : Sat Oct 31 09:53:53 CET 2015
+ 
+ Table 'centros_de_trabajo' found in repository
+ . Column 'PARKING' : NotNull changed to false
+ . Column 'PISCINA' : NotNull changed to false
+ (*) table 'centros_de_trabajo' updated : 2 change(s)
+ 
+ Table 'detalle_planilla' found in repository
+ . Column 'idDETALLE_PLANILLA' removed
+ . Column 'FECHA_INICIO' removed
+ . Column 'FECHA_FIN' removed
+ . Column 'OBSERVACIONES' removed
+ . Column 'ID_DETALLE' added
+ . Column 'DIA' added
+ . Column 'PLANILLAS_idPLANILLAS' added
+ . Foreign key 'fk_DETALLE_PLANILLA_PLANILLAS1' added
+ (*) table 'detalle_planilla' updated : 8 change(s)
+ 
+ Table 'detalle_planilla_has_empleados' not found in repository
+ (+) table 'detalle_planilla_has_empleados' added
+ 
+ Table 'direccion' found in repository
+ (=) table 'direccion' unchanged
+ 
+ Table 'empleados' found in repository
+ . Column 'NICK_USUARIO' removed
+ . Column 'PASSWORD' removed
+ (*) table 'empleados' updated : 2 change(s)
+ 
+ Table 'estados' found in repository
+ (=) table 'estados' unchanged
+ 
+ Table 'horario' found in repository
+ . Column 'HORA_INICIO_ESPECIAL' removed
+ . Column 'HORA_FIN_ESPECIAL' removed
+ (*) table 'horario' updated : 2 change(s)
+ 
+ Table 'perfiles' found in repository
+ (=) table 'perfiles' unchanged
+ 
+ Table 'planillas' found in repository
+ . Column 'FECHA' removed
+ . Column 'OBSERVACIONES' removed
+ . Column 'ID_VOLUMEN_ESPECIAL' removed
+ . Foreign key 'fk_PLANILLAS_DETALLE_PLANILLA1' removed
+ . Foreign key 'fk_PLANILLAS_VOLUMEN_TRABAJO_ESPECIAL1' removed
+ . Column 'FECHA_INICIO' added
+ . Column 'FECHA_FIN' added
+ . Column 'DESCRIPCION' added
+ (*) table 'planillas' updated : 8 change(s)
+ 
+ Table 'puesto_de_trabajo' found in repository
+ (=) table 'puesto_de_trabajo' unchanged
+ 
+ Table 'tipo_fecha' found in repository
+ (=) table 'tipo_fecha' unchanged
+ 
+ Table 'turnos_de_trabajo' found in repository
+ . Column 'TURNO_ROTATORIO' added
+ . Column 'ID_SIGUIENTE_TURNO' added
+ . Foreign key 'fk_TURNOS_DE_TRABAJO_TURNOS_DE_TRABAJO1' added
+ (*) table 'turnos_de_trabajo' updated : 3 change(s)
+ 
+ Table 'turnos_de_trabajo_has_detalle_planilla' not found in repository
+ (+) table 'turnos_de_trabajo_has_detalle_planilla' added
+ 
+ Table 'usuarios' not found in repository
+ (+) table 'usuarios' added
+ 
+ Table 'vacaciones' found in repository
+ . Column 'OBSERVACIONES' : NotNull changed to false
+ (*) table 'vacaciones' updated : 1 change(s)
+ 
+ Table 'volumen_trabajo_especial' found in repository
+ . Column 'ID_PUESTO_TRABAJO' added
+ . Foreign key 'fk_VOLUMEN_TRABAJO_ESPECIAL_PUESTO_DE_TRABAJO1' added
+ (*) table 'volumen_trabajo_especial' updated : 2 change(s)
+ 
+ Table 'planillas_has_empleados' no longer exists in database
+ (-) table 'planillas_has_empleados' removed
+ 
+ Table 'turnos_trabajo_especiales' no longer exists in database
+ (-) table 'turnos_trabajo_especiales' removed
