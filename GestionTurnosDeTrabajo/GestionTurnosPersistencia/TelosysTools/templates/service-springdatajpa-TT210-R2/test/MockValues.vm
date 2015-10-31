@@ -116,5 +116,8 @@ public class MockValues {
 		return new java.sql.Timestamp( (new java.util.Date()).getTime() );
 	}
 	
+	public java.lang.Boolean nextBoolean(){
+		return true;
+	}
 
 }

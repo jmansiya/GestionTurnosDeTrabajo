@@ -23,8 +23,8 @@ import ${ENTITY_PKG}.jpa.${entity.name}EntityKey;
 #foreach( $import in $java.imports($entity) )
 import $import;
 #end
-import ${ROOT_PKG}.business.service.${entity.name}Service;
-import ${ROOT_PKG}.business.service.mapping.${entity.name}ServiceMapper;
+import ${ROOT_PKG}.persistence.service.${entity.name}Service;
+import ${ROOT_PKG}.persistence.service.mapping.${entity.name}ServiceMapper;
 import ${ROOT_PKG}.data.repository.jpa.${entity.name}JpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

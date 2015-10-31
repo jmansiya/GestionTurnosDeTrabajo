@@ -54,7 +54,7 @@ import ${ENTITY_PKG}.jpa.${entity.name}EntityKey;
 #foreach( $import in $java.imports($entity) )
 import $import;
 #end
-import ${ROOT_PKG}.business.service.mapping.${entity.name}ServiceMapper;
+import ${ROOT_PKG}.persistence.service.mapping.${entity.name}ServiceMapper;
 import ${ROOT_PKG}.data.repository.jpa.${entity.name}JpaRepository;
 import ${ROOT_PKG}.test.${entity.name}FactoryForTest;
 import ${ROOT_PKG}.test.${entity.name}EntityFactoryForTest;

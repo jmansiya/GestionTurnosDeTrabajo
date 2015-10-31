@@ -8,10 +8,10 @@ public class DetallePlanillaFactoryForTest {
 	
 	public DetallePlanilla newDetallePlanilla() {
 
-		Integer iddetallePlanilla = mockValues.nextInteger();
+		Integer idDetalle = mockValues.nextInteger();
 
 		DetallePlanilla detallePlanilla = new DetallePlanilla();
-		detallePlanilla.setIddetallePlanilla(iddetallePlanilla);
+		detallePlanilla.setIdDetalle(idDetalle);
 		return detallePlanilla;
 	}
 	

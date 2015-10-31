@@ -11,7 +11,9 @@
   "java.util.Date"       : "nextDate()", 
   "java.sql.Date"        : "nextSqlDate()", 
   "java.sql.Time"        : "nextSqlTime()", 
-  "java.sql.Timestamp"   : "nextSqlTimestamp()"
+  "java.sql.Timestamp"   : "nextSqlTimestamp()",
+  "java.lang.Boolean"    : "nextBoolean()",
+  "Boolean"    : "nextBoolean()" 
 } )
 #set( $package = ${target.javaPackageFromFolder($SRC)} )
 ## ------------------------------------------------------------------
