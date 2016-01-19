@@ -9,5 +9,11 @@
   <name>CapaDeNegocios</name>
   <description>Será la capa que contenga el negocio de la aplicación</description>
   <groupId>org.sun.resorts.holidays.negocio</groupId>
-  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>commons-lang</groupId>
+  		<artifactId>commons-lang</artifactId>
+  		<version>2.6</version>
+  	</dependency>
+  </dependencies>
 </project>
