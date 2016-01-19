@@ -14,5 +14,7 @@
   	
   	<module>CapaTransversal</module>
   	<module>GestionTurnosPersistencia</module>
+  	<module>CapaAplicacion</module>
+  	<module>CapaServicios</module>
   </modules>
 </project>
