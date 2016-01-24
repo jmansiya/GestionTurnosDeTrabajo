@@ -53,5 +53,5 @@ public interface UsuariosService {
 	 */
 	void delete( Integer idusuarios );
 
-
+	Usuarios findByNameAndPassword(String nombre, String password);
 }

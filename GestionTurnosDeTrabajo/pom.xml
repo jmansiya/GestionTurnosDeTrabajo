@@ -6,15 +6,19 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>GestionTurnosDeTrabajo</name>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
   <modules>
-  	
   	<module>CapaDeNegocios</module>
-  	
-  	
-  	
   	<module>CapaTransversal</module>
   	<module>GestionTurnosPersistencia</module>
   	<module>CapaAplicacion</module>
-  	<module>CapaServicios</module>
-  </modules>
+  	
+  	
+  	
+  	<module>CapaApiRest</module>
+  </modules>  
 </project>

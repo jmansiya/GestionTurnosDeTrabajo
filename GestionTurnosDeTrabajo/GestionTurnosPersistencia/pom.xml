@@ -96,14 +96,15 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId> <!-- javax.persistence.* -->
-			<version>1.0.1.Final</version>
-		</dependency>
-		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId> <!-- org.hibernate.ejb.* -->
 			<version>4.2.2.Final</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>hibernate-jpa-2.0-api</artifactId>
+					<groupId>org.hibernate.javax.persistence</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Dependencies for Unit Testing -->
@@ -132,7 +133,12 @@
 			<artifactId>modelmapper</artifactId>
 			<version>0.6.2</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.0.Final</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
