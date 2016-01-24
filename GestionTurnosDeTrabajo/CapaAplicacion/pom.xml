@@ -6,4 +6,11 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>CapaAplicacion</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.sun.resorts.holidays</groupId>
+  		<artifactId>GestionTurnosPersistencia</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
