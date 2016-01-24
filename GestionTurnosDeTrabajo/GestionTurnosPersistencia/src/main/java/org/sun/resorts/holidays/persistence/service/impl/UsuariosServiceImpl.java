@@ -92,4 +92,12 @@ public class UsuariosServiceImpl implements UsuariosService {
 		this.usuariosServiceMapper = usuariosServiceMapper;
 	}
 
+	@Override
+	public Usuarios findByNameAndPassword(String nombre, String password) {
+		// TODO Auto-generated method stub
+		UsuariosEntity usuariosEntity = usuariosJpaRepository.findByNombreAndPassword(nombre, password);
+		
+		return usuariosServiceMapper.mapUsuariosEntityToUsuarios(usuariosEntity);
+	}
+
 }
