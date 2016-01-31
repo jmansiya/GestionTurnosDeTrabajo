@@ -21,19 +21,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 		+ " org.sun.resorts.holidays")
 @EntityScan(basePackages = "org.sun.resorts.holidays.model.jpa")
 @EnableJpaRepositories(basePackages = "org.sun.resorts.holidays.data.repository.jpa")
-@ImportResource("classpath:/META-INF/spring/applicationContext-data.xml")
+@ImportResource({"classpath:/META-INF/spring/applicationContext-data.xml", 
+				 "classpath:/spring/spring-security.xml"})
+
 public class springBootStart {
      
     public static void main(String[] args) {
         SpringApplication.run(springBootStart.class, args);
     }
    
-//    @Bean
-//    public EntityManagerFactory customEntityManagerFactory(
-//            EntityManagerFactoryBuilder builder) {
-//    	configuracionDataBase config = new configuracionDataBase();
-//        return builder
-//                .withDataSource(config.dataSource())
-//                .build();
-//    }
 }
