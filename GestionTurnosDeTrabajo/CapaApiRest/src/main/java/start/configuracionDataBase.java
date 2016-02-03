@@ -42,7 +42,7 @@ public class configuracionDataBase {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource(databaseUrl, username, password);
         dataSource.setDriverClassName(driverClassName);
-        System.out.println("Pruebas");
+        System.out.println("Pruebas nuevas");
         return dataSource;
     }
 
