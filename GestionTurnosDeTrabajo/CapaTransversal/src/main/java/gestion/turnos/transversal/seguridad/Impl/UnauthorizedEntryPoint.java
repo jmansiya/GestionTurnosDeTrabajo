@@ -1,4 +1,4 @@
-package gestion.turnos.transversal.seguridad.Impl;
+package gestion.turnos.transversal.seguridad.impl;
 
 import java.io.IOException;
 
@@ -14,6 +14,7 @@ import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.stereotype.Service;
 
 import gestion.turnos.transversal.excepciones.CustomExceptions.RestAPIGeneralException;
 import gestion.turnos.transversal.excepciones.Error.RestError;
@@ -23,6 +24,8 @@ import gestion.turnos.transversal.excepciones.Error.RestError;
  * in {@link TokenAuthenticationFilter} and this does not perform or suggests any redirection.
  * This object is hit whenever user is not authorized (anonymous) and secured resource is requested.
  */
+
+
 public final class UnauthorizedEntryPoint implements AuthenticationEntryPoint {
 
 	@Autowired

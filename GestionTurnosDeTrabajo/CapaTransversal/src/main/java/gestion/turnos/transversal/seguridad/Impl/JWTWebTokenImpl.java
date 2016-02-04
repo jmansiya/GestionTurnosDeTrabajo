@@ -1,4 +1,4 @@
-package gestion.turnos.transversal.seguridad.Impl;
+package gestion.turnos.transversal.seguridad.impl;
 
 import java.security.Key;
 import java.util.Arrays;

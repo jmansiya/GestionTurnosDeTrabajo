@@ -1,4 +1,4 @@
-package gestion.turnos.transversal.seguridad.Impl;
+package gestion.turnos.transversal.seguridad.impl;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import gestion.turnos.transversal.excepciones.CustomExceptions.RestAPIGeneralException;
 import gestion.turnos.transversal.excepciones.utils.ErrorMessagesUtils.ErrorsRestServicesFichaColegial;
@@ -22,7 +23,6 @@ import gestion.turnos.transversal.seguridad.dto.UsuarioDTO;
  * Service responsible for all around authentication, token checks, etc.
  * This class does not care about HTTP protocol at all.
  */
-
 
 public class AuthenticationServiceImpl implements AuthenticationService {
 	private final AuthenticationManager authenticationManager;
