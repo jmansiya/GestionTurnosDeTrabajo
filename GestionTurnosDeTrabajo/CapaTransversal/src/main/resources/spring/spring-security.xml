@@ -16,7 +16,7 @@
 		need to add proxy-target-class="true" as well. Book "Spring Security 3.1", Chapter 10, Fine-grained
 		Access Control, from header "Method security on Spring MVC controllers" on discusses these topics.
 	-->
-	<global-method-security secured-annotations="enabled"/>
+<!-- 	<global-method-security secured-annotations="enabled"/> -->
 
 	<http realm="Protected API"
 		use-expressions="true"
@@ -49,5 +49,5 @@
 		c:authenticationManager-ref="restAuthenticationManager" c:tokenManager-ref="tokenManager"/>
 
 	<bean:bean id="restAuthenticationFilter" class="gestion.turnos.transversal.seguridad.impl.TokenAuthenticationFilter"
-		c:authenticationService-ref="authenticationService" c:logoutLink="/fichaColegial/logout" c:loginLink="/fichaColegial/login" c:restAuthenticationEntryPoint-ref="unauthorizedEntryPoint"/>
+		c:authenticationService-ref="authenticationService" c:logoutLink="/SunHolidaysAPI/logout" c:loginLink="/SunHolidaysAPI/login" c:restAuthenticationEntryPoint-ref="unauthorizedEntryPoint"/>
 </bean:beans>

@@ -18,10 +18,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
                                     DataSourceAutoConfiguration.class})
 @ComponentScan(basePackages = "start, gestion.turnos.servicios.distribuidos.controlAcceso,"
 		+ " gestion.turnos.aplicacion,"
+		+ " gestion.turnos.transversal, " 
 		+ " org.sun.resorts.holidays")
 @EntityScan(basePackages = "org.sun.resorts.holidays.model.jpa")
 @EnableJpaRepositories(basePackages = "org.sun.resorts.holidays.data.repository.jpa")
-@ImportResource({"classpath:/META-INF/spring/applicationContext-data.xml", 
+@ImportResource({"classpath:/META-INF/spring/applicationContext-data.xml",
+				 "classpath:/spring/applicationContext.xml",
 				 "classpath:/spring/spring-security.xml"})
 
 public class springBootStart {
