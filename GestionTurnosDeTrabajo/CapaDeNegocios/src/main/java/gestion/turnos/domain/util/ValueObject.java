@@ -1,4 +1,4 @@
-package com.gestion.turnos.domain.util;
+package gestion.turnos.domain.util;
 
 /**
  * A value object.

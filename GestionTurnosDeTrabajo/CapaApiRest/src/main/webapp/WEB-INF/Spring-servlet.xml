@@ -16,7 +16,7 @@ http://www.springframework.org/schema/security/spring-security-4.0.xsd
 http://www.springframework.org/schema/cache 
 http://www.springframework.org/schema/cache/spring-cache-4.0.xsd">
 
-	<import resource="applicationContext.xml" />
+	<import resource="classpath*:/spring/app_context_web.xml" />
 	
 	<!-- <context:annotation-config />
  	<context:component-scan base-package="org.redabogacia.ecom" /> -->

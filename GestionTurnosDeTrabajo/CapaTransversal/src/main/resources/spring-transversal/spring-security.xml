@@ -5,7 +5,7 @@
 	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
@@ -30,7 +30,7 @@
 		<intercept-url pattern="/SunHolidaysAPI/login" access="permitAll"/>
 		<intercept-url pattern="/SunHolidaysAPI/logout" access="permitAll"/>
 		<intercept-url pattern="/SunHolidaysAPI/**" access="isFullyAuthenticated()"/>
-	
+		
 		<csrf disabled="true"/>
 	</http>
 	
