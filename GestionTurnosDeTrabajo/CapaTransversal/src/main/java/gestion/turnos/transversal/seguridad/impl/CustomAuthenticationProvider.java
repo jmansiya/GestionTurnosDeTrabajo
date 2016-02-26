@@ -63,7 +63,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider, Ser
         return usuario;
 	}
 
-   @Override
     public boolean supports(Class<? extends Object> authentication) {
         return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
     }
