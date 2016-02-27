@@ -12,7 +12,8 @@
     <!-- Sonar -->
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-    <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+    <sonar.jacoco.reportPath-ut>${project.basedir}/../target/coverage-reports/jacoco-ut.exec</sonar.jacoco.reportPath-ut>
+    <sonar.jacoco.reportPath-it>${project.basedir}/../target/coverage-reports/jacoco-it.exec</sonar.jacoco.reportPath-it>
     <sonar.language>java</sonar.language>
   </properties>
   
@@ -268,7 +269,7 @@
 			            <configuration>
 			                <!-- Sets the path to the file which contains the execution data. -->
 			                <!-- <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile> -->
-			                <destFile>${sonar.jacoco.reportPath}</destFile>
+			                <destFile>${sonar.jacoco.reportPath-ut}</destFile>
 					        <append>true</append> 
 			                <!--
 			                    Sets the name of the property containing the settings
@@ -308,7 +309,7 @@
 			            <configuration>
 			                <!-- Sets the path to the file which contains the execution data. -->
 			                <!-- <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile> -->			                
-					        <destFile>${sonar.jacoco.reportPath}</destFile>
+					        <destFile>${sonar.jacoco.reportPath-it}</destFile>
 					        <append>true</append>    
 			                <!--
 			                    Sets the name of the property containing the settings
