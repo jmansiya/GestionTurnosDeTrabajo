@@ -18,11 +18,11 @@
   </properties>
   
   <modules>
-  	<module>CapaDeNegocios</module>
   	<module>CapaTransversal</module>
   	<module>GestionTurnosPersistencia</module>
   	<module>CapaAplicacion</module>
   	<module>CapaApiRest</module>
+  	<module>CapaDeNegocios</module>
   </modules>
   
   <dependencies>
@@ -302,7 +302,7 @@
 			            unit tests have been run.
 			        -->
 			        <execution>
-			            <id>post-unit-test</id>
+			        	<id>post-unit-test</id>
 			            <phase>test</phase>
 			            <goals>
 			                <goal>report</goal>
