@@ -9,6 +9,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  *
  * @param <T>
  */
+@SuppressWarnings("unchecked")
 public abstract class ValueObjectSupport<T extends ValueObject> implements ValueObject<T> {
 
   private transient int cachedHashCode = 0;
