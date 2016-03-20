@@ -7,6 +7,9 @@ import java.util.Date;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author JoseMansilla
@@ -15,14 +18,19 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 public class UsuarioDTO implements Serializable, UserDetails {
 	private static final long serialVersionUID = 1L;
-	private int idPersona;
+	public int idPersona;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
 	private int idPerfil;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
 	private Date fechaAutenticacion;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
 	private Date fechaExpiracion;
-	private String nombreCompleto;
+	private Collection<? extends GrantedAuthority> authorities;
+	@JsonIgnore
+	private String credenciales;
 	
 	public UsuarioDTO() {
 		super();
@@ -76,18 +84,21 @@ public class UsuarioDTO implements Serializable, UserDetails {
 					+ "nombre=" + nombre  
 					+ ", apellido1=" + apellido1 
 					+ ", apellido2=" + apellido2 
-					+ ", idPerfil=" + idPerfil + "]";
+					+ ", idPerfil=" + idPerfil + ""
+					+ ", ROLE = " + (getAuthorities() == null ? "[]" : getAuthorities().iterator().next()) + "]";
 	}
 	
+	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
+	@JsonIgnore
 	public String getPassword() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+	@JsonIgnore
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
 		if (fechaExpiracion.after(new Date())){
@@ -96,17 +107,20 @@ public class UsuarioDTO implements Serializable, UserDetails {
 			return false;
 		}
 	}
+	@JsonIgnore
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
+	@JsonIgnore
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
+	@JsonIgnore
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	public Date getFechaAutenticacion() {
 		return fechaAutenticacion;
@@ -120,11 +134,23 @@ public class UsuarioDTO implements Serializable, UserDetails {
 	public void setFechaExpiracion(Date fechaExpiracion) {
 		this.fechaExpiracion = fechaExpiracion;
 	}
+	@JsonIgnore
 	public String getNombreCompleto() {
 		return getNombre() + " " + getApellido1() + " " + getApellido2();
 	}
+	@JsonIgnore
 	public String getUsername() {
 		// TODO Auto-generated method stub
 		return getNombre();
 	}
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
+	}
+	public String getCredenciales() {
+		return credenciales;
+	}
+	public void setCredenciales(String credenciales) {
+		this.credenciales = credenciales;
+	}
+	
 }

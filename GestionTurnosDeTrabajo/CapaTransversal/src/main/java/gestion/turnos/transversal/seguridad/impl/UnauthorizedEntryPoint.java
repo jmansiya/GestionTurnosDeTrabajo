@@ -14,7 +14,6 @@ import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import org.springframework.stereotype.Service;
 
 import gestion.turnos.transversal.excepciones.CustomExceptions.RestAPIGeneralException;
 import gestion.turnos.transversal.excepciones.Error.RestError;

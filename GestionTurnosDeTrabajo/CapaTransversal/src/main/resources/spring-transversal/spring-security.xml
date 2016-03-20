@@ -26,7 +26,6 @@
 		
 		<custom-filter ref="restAuthenticationFilter" position="FORM_LOGIN_FILTER" />
 
-		<intercept-url pattern="/*" access="permitAll"/>
 		<intercept-url pattern="/SunHolidaysAPI/login" access="permitAll"/>
 		<intercept-url pattern="/SunHolidaysAPI/logout" access="permitAll"/>
 		<intercept-url pattern="/SunHolidaysAPI/**" access="isFullyAuthenticated()"/>
@@ -40,8 +39,8 @@
 
 	<authentication-manager id="restAuthenticationManager">
 		<authentication-provider ref="CustomAuthenticationProvider">
-		</authentication-provider>
-	</authentication-manager>
+		</authentication-provider> 
+ 	</authentication-manager>
 	
 	<bean:bean id="tokenManager" class="gestion.turnos.transversal.seguridad.impl.JWTWebTokenImpl"/>
 
@@ -50,4 +49,7 @@
 
 	<bean:bean id="restAuthenticationFilter" class="gestion.turnos.transversal.seguridad.impl.TokenAuthenticationFilter"
 		c:authenticationService-ref="authenticationService" c:logoutLink="/SunHolidaysAPI/logout" c:loginLink="/SunHolidaysAPI/login" c:restAuthenticationEntryPoint-ref="unauthorizedEntryPoint"/>
+		
+    <!-- Enable the annotations for defining the secure role -->
+    <global-method-security secured-annotations="enabled" />
 </bean:beans>

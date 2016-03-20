@@ -1,5 +1,7 @@
 package gestion.turnos.transversal.seguridad.impl;
 
+import java.util.Collection;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -7,7 +9,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +53,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 			
 			if (authentication.getPrincipal() != null) {
 				UsuarioDTO userContext = (UsuarioDTO) authentication.getPrincipal();
+				userContext.setCredenciales(password);
 				String newToken = tokenManager.createJWT(userContext, tiempoExpiracion);
 				
 				log.info("Nuevo TOKEN generado: " + newToken);
@@ -77,7 +82,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 			throw new RestAPIGeneralException(ErrorsRestServicesFichaColegial.ERSFC_401_002);
 		}
 		
-		UsernamePasswordAuthenticationToken securityToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+		UsernamePasswordAuthenticationToken securityToken = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getCredenciales(), (Collection<? extends GrantedAuthority>) userDetails.getAuthorities());
+		
 		SecurityContextHolder.getContext().setAuthentication(securityToken);
 		return true;
 	}
