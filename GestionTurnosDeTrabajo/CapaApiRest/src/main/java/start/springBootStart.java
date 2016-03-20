@@ -22,9 +22,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 		+ " org.sun.resorts.holidays")
 @EntityScan(basePackages = "org.sun.resorts.holidays.model.jpa")
 @EnableJpaRepositories(basePackages = "org.sun.resorts.holidays.data.repository.jpa")
-@ImportResource({"classpath:/META-INF/spring/applicationContext-data.xml",
-				 "classpath:/spring/applicationContext.xml",
-				 "classpath:/spring/spring-security.xml"})
+@ImportResource({"classpath:/spring/app_context_web.xml",
+	"classpath:/spring/app_context_aplicacion.xml",
+	"classpath:/spring-transversal/app_context_transversal.xml",
+	"classpath:/spring-transversal/spring-security.xml",
+	"classpath:/META-INF/spring/app_context_persistencia.xml"})
 
 public class springBootStart {
      

@@ -1,19 +1,24 @@
 package gestion.turnos.servicios.distribuidos.controlAcceso;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import gestion.turnos.transversal.excepciones.CustomExceptions.RestAPIGeneralException;
 import gestion.turnos.transversal.excepciones.Error.RestError;
+import gestion.turnos.transversal.seguridad.dto.UsuarioDTO;
 
 /**
  * 
@@ -39,7 +44,8 @@ public class LoginController {
 	public String logout(HttpServletRequest request) {
         String uri = request.getRequestURI();
         String metodo = request.getMethod();
-        throw new RestAPIGeneralException(HttpServletResponse.SC_METHOD_NOT_ALLOWED , "El recurso solicitado [" + uri  + "]  mediante el método [" +  metodo + "] no está permitido.", null, HttpStatus.METHOD_NOT_ALLOWED);	}
+        throw new RestAPIGeneralException(HttpServletResponse.SC_METHOD_NOT_ALLOWED , "El recurso solicitado [" + uri  + "]  mediante el método [" +  metodo + "] no está permitido.", null, HttpStatus.METHOD_NOT_ALLOWED);	
+      }
 	
     @RequestMapping("/**")
     public void unmappedRequest(HttpServletRequest request) {
@@ -54,4 +60,11 @@ public class LoginController {
     public RestError methodNotSupportErrorHandler(HttpServletRequest req, Exception e) throws Exception {
     	throw new HttpRequestMethodNotSupportedException(req.getMethod(), "Excepcion capturada por fin!!");
     }	
+    
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public UsuarioDTO getUsuario(Principal user) {
+		UsuarioDTO userDTO = (UsuarioDTO) ((UsernamePasswordAuthenticationToken) user).getPrincipal();
+		
+		return userDTO;
+	}
 }
