@@ -1,4 +1,4 @@
-package gestion.turnos.servicios.distribuidos.controlAcceso;
+package gestion.turnos.servicios.distribuidos;
 
 import java.security.Principal;
 
